@@ -20,6 +20,6 @@ typedef void (^Block)(NSString *);
 - (void)dismissHoverMenu;
 
 // 设置背景
-- (void)setBackGround:(UIImage *)image;
+- (void)setBackGround:(UIImage *)image withDataSource:(NSArray *)dataArray anchorPoint:(CGPoint)point;
 
 @end

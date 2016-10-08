@@ -8,8 +8,14 @@
 
 #import "MainViewController.h"
 #import "HoverMenuView.h"
+#import "DetailViewController.h"
 
 @interface MainViewController ()
+{
+    // 左右弹出菜单bool值
+    BOOL isLeftShow;
+    BOOL isRightShow;
+}
 
 @property (nonatomic, strong) HoverMenuView *leftHoverMenu;
 @property (nonatomic, strong) HoverMenuView *rightHoverMenu;
@@ -38,7 +44,9 @@
                                                                                           action:@selector(barButtonClicked:)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                            target:self
-                                                                                           action:@selector(barButtonClicked:)];
+                                                                                        action:@selector(barButtonClicked:)];
+    isLeftShow = NO;
+    isRightShow = NO;
 }
 
 #pragma mark - 懒加载
@@ -46,8 +54,17 @@
 {
     if (!_leftHoverMenu)
     {
-        _leftHoverMenu = [[HoverMenuView alloc] init];
-        _leftHoverMenu.frame = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+        _leftHoverMenu = [[HoverMenuView alloc] initWithFrame:CGRectMake(10, self.navigationController.navigationBar.frame.size.height + 25, 150, 200)];
+        UIImage *leftMenuImg = [UIImage imageNamed:@"leftbg.png"];
+        NSArray *leftDataArray = @[@"item1", @"item2", @"item3", @"item4", @"item5"];
+        [_leftHoverMenu setBackGround:leftMenuImg withDataSource:leftDataArray anchorPoint:CGPointZero];
+        [self.view addSubview:_leftHoverMenu];
+        
+        // block
+        __weak typeof(self) weakself = self;
+        _leftHoverMenu.selectBlock = ^(NSString *str){
+            [weakself menuItemClicked:str];
+        };
     }
     return _leftHoverMenu;
 }
@@ -56,9 +73,19 @@
 {
     if (!_rightHoverMenu)
     {
+        _rightHoverMenu = [[HoverMenuView alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 10 - 150, self.navigationController.navigationBar.frame.size.height + 25, 150, 200)];
+        UIImage *leftMenuImg = [UIImage imageNamed:@"rightbg.png"];
+        NSArray *leftDataArray = @[@"option1", @"option2", @"option3", @"option4", @"option5"];
+        [_rightHoverMenu setBackGround:leftMenuImg withDataSource:leftDataArray anchorPoint:CGPointMake(1, 0)];
+        [self.view addSubview:_rightHoverMenu];
         
+        // block
+        __weak typeof(self) weakself = self;
+        _rightHoverMenu.selectBlock = ^(NSString *str){
+            [weakself menuItemClicked:str];
+        };
     }
-    return;
+    return _rightHoverMenu;
 }
 
 #pragma mark - 导航栏button事件
@@ -67,18 +94,39 @@
     if (sender == self.navigationItem.leftBarButtonItem)
     {
         // 左边弹出悬浮菜单
+        NSLog(@"left button clicked");
+        if (!isLeftShow)
+        {
+            [self.leftHoverMenu showHoverMenu];
+        }
+        else
+        {
+            [self.leftHoverMenu dismissHoverMenu];
+        }
+        isLeftShow = !isLeftShow;
     }
     else if (sender == self.navigationItem.rightBarButtonItem)
     {
         // 右边弹出悬浮菜单
+        NSLog(@"right button clicked");
+        if (!isRightShow)
+        {
+            [self.rightHoverMenu showHoverMenu];
+        }
+        else
+        {
+            [self.rightHoverMenu dismissHoverMenu];
+        }
+        isRightShow = !isRightShow;
     }
 }
 
-
-- (void)didReceiveMemoryWarning
+#pragma mark - block事件
+- (void)menuItemClicked:(NSString *)item
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    DetailViewController *vc = [[DetailViewController alloc] init];
+    vc.title = item;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

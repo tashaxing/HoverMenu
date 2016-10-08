@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40DAE141DA8BD4300FE8228 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E40DAE121DA8BD4300FE8228 /* DetailViewController.m */; };
+		E40DAE151DA8BD4300FE8228 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E40DAE131DA8BD4300FE8228 /* DetailViewController.xib */; };
 		E4C4D9EE1D9E4DAF00EED62F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C4D9ED1D9E4DAF00EED62F /* main.m */; };
 		E4C4D9F11D9E4DAF00EED62F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C4D9F01D9E4DAF00EED62F /* AppDelegate.m */; };
 		E4C4D9F31D9E4DAF00EED62F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C4D9F21D9E4DAF00EED62F /* Assets.xcassets */; };
@@ -18,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E40DAE111DA8BD4300FE8228 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		E40DAE121DA8BD4300FE8228 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		E40DAE131DA8BD4300FE8228 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		E4C4D9E91D9E4DAF00EED62F /* HoverMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoverMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4C4D9ED1D9E4DAF00EED62F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E4C4D9EF1D9E4DAF00EED62F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -73,6 +78,9 @@
 				E4C4D9FE1D9E4DC700EED62F /* MainViewController.m */,
 				E4C4DA001D9E4E6800EED62F /* HoverMenuView.h */,
 				E4C4DA011D9E4E6800EED62F /* HoverMenuView.m */,
+				E40DAE111DA8BD4300FE8228 /* DetailViewController.h */,
+				E40DAE121DA8BD4300FE8228 /* DetailViewController.m */,
+				E40DAE131DA8BD4300FE8228 /* DetailViewController.xib */,
 			);
 			path = HoverMenu;
 			sourceTree = "<group>";
@@ -146,6 +154,7 @@
 			files = (
 				E4C4D9F31D9E4DAF00EED62F /* Assets.xcassets in Resources */,
 				E4C4DA081D9E5E5900EED62F /* rightbg.png in Resources */,
+				E40DAE151DA8BD4300FE8228 /* DetailViewController.xib in Resources */,
 				E4C4DA071D9E5E5900EED62F /* leftbg.png in Resources */,
 				E4C4D9F61D9E4DAF00EED62F /* LaunchScreen.storyboard in Resources */,
 			);
@@ -158,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40DAE141DA8BD4300FE8228 /* DetailViewController.m in Sources */,
 				E4C4D9F11D9E4DAF00EED62F /* AppDelegate.m in Sources */,
 				E4C4D9FF1D9E4DC700EED62F /* MainViewController.m in Sources */,
 				E4C4DA021D9E4E6800EED62F /* HoverMenuView.m in Sources */,
@@ -304,6 +314,7 @@
 				E4C4D9FC1D9E4DB000EED62F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
